@@ -6,7 +6,7 @@ const builder = require('xmlbuilder')
 const pMemoize = require('p-memoize')
 const { URL } = require('url') // TODO: Remove once Node 8 support is dropped
 
-const MAX_SITEMAP_LENGTH = process.env.MAX_SITEMAP_LENGTH || 50 * 1000 // Max URLs in a sitemap (defined by spec)
+const MAX_SITEMAP_LENGTH = process.env.MAX_SITEMAP_LENGTH ? parseInt(process.env.MAX_SITEMAP_LENGTH, 10) : (50 * 1000) // Max URLs in a sitemap (defined by spec)
 const SITEMAP_URL_RE = /\/sitemap(-\d+)?\.xml/ // Sitemap url pattern
 const SITEMAP_MAX_AGE = 24 * 60 * 60 * 1000 // Cache sitemaps for 24 hours
 
